@@ -12,5 +12,3 @@ camera = rl.Camera3D(
     45.0, # Field of view
     rl.CAMERA_PERSPECTIVE # Camera Mode
     )
-
-print(camera)
