@@ -24,7 +24,7 @@ while not rl.window_should_close():
 
     position = rl.Vector3(piece.position[0], piece.position[1], piece.position[2]) # Set the position of the cube
     
-    rl.draw_model(piece.model, position, 2, piece.face_color) # Draw the model
+    rl.draw_model(piece.model, position, 1, piece.face_color) # Draw the model
     rl.draw_grid(
         20, # Number of lines in the grid
         1.0 # Spacing between lines

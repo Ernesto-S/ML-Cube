@@ -29,7 +29,7 @@ class Cube:
 
 class Rubik:
     def __init__(self) -> None:
-        self.generate_rubik(1)
+        self.generate_rubik(3)
         
     def generate_rubik(self, size:int):
         position = [0, 0, 0]
