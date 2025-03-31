@@ -35,18 +35,18 @@ class Cube:
 class Rubik:
     def __init__(self) -> None:
         self.cubes = []
-        self.generate_rubik(1)
+        self.generate_rubik(3)
         
     def generate_rubik(self, size:int):
         colors = [rl.BLUE, rl.GREEN, rl.ORANGE, rl.RED, rl.WHITE, rl.YELLOW]
-        offset = size-0.7
-        size_z = size*0.9, size*0.9, size*0.1
-        size_y = size*0.9, size*0.1, size*0.9
-        size_x = size*0.1, size*0.9, size*0.9
+        offset = size - 0.7 # Offset for the cubes
+        size_z = size, size, size*0.1
+        size_y = size, size*0.1, size
+        size_x = size*0.1, size, size
 
-        for x in range(1):
-            for y in range(1):
-                for z in range(1):
+        for x in range(3):
+            for y in range(3):
+                for z in range(3):
                     face_color = [
                         rl.BLACK if z != 2 else colors[0], # Front
                         rl.BLACK if z != 0 else colors[1], # Back
@@ -68,7 +68,7 @@ class Rubik:
                     front_position = np.array([
                         center_position[0],
                         center_position[1],
-                        center_position[2] + size/2
+                        center_position[2] + 0.1
                     ])
 
                     front = Cube(size_z, front_position, face_color[0])
@@ -77,13 +77,13 @@ class Rubik:
                     back_position = np.array([
                         center_position[0],
                         center_position[1],
-                        center_position[2] - size/2
+                        center_position[2] - 0.1
                     ])
                     back = Cube(size_z, back_position, face_color[1])
 
                     # right face
                     right_position = np.array([
-                        center_position[0] + size/2,
+                        center_position[0] + 0.1,
                         center_position[1],
                         center_position[2]
                     ])
@@ -92,7 +92,7 @@ class Rubik:
 
                     # left face
                     left_position = np.array([
-                        center_position[0] - size/2,
+                        center_position[0] - 0.1,
                         center_position[1],
                         center_position[2]
                     ])
@@ -102,7 +102,7 @@ class Rubik:
                     # top face
                     top_position = np.array([
                         center_position[0],
-                        center_position[1] + size/2,
+                        center_position[1] + 0.1,
                         center_position[2]
                     ])
                     
@@ -111,7 +111,7 @@ class Rubik:
                     # bottom face
                     bottom_position = np.array([
                         center_position[0],
-                        center_position[1] - size/2,
+                        center_position[1] - 0.1,
                         center_position[2]
                     ])
 
@@ -121,12 +121,3 @@ class Rubik:
                         position, front, back, right, left, top, bottom
                     ])
         return self.cubes
-
-        position = [0, 0, 0]
-        piece = Cube(size, position, rl.BLACK)
-        print("\n Cube Properties:")
-        print("Model:", piece.model)
-        print("Position:", piece.position)
-        print("Face Color:", piece.face_color)
-        print("\n")
-        return piece

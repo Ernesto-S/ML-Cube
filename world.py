@@ -25,12 +25,11 @@ while not rl.window_should_close():
     for i, cube in enumerate(rubik_cube.cubes):
         for cube_part in cube:
             position = rl.Vector3(cube_part.position[0], cube_part.position[1], cube_part.position[2]) # Set the position of the cube
-            print(cube[0].position)
 
             rl.draw_model(
                 cube_part.model, 
                 position, 
-                2, 
+                1, 
                 cube_part.face_color
                 ) 
     # position = rl.Vector3(piece.position[0], piece.position[1], piece.position[2]) # Set the position of the cube
