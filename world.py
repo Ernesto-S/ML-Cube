@@ -15,7 +15,7 @@ rl.set_target_fps(configs.fps) # set the frames per second
 while not rl.window_should_close():
     rl.update_camera( # Update camera
         configs.camera, 
-        rl.CameraMode.CAMERA_THIRD_PERSON
+        rl.CameraMode.CAMERA_ORBITAL, # Camera mode
         )
     
     rl.begin_drawing() # Begin drawing

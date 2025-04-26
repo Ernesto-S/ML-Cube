@@ -62,13 +62,13 @@ class Rubik:
                         (z - 1) * offset  # Z position
                     ])
 
-                    position = Cube(size, center_position, rl.BLACK)
+                    center = Cube(1, center_position, rl.BLACK)
 
                     # front face
                     front_position = np.array([
                         center_position[0],
                         center_position[1],
-                        center_position[2] + 0.1
+                        center_position[2] + size/2
                     ])
 
                     front = Cube(size_z, front_position, face_color[0])
@@ -77,13 +77,13 @@ class Rubik:
                     back_position = np.array([
                         center_position[0],
                         center_position[1],
-                        center_position[2] - 0.1
+                        center_position[2] - size/2
                     ])
                     back = Cube(size_z, back_position, face_color[1])
 
                     # right face
                     right_position = np.array([
-                        center_position[0] + 0.1,
+                        center_position[0] + size/2,
                         center_position[1],
                         center_position[2]
                     ])
@@ -92,7 +92,7 @@ class Rubik:
 
                     # left face
                     left_position = np.array([
-                        center_position[0] - 0.1,
+                        center_position[0] - size/2,
                         center_position[1],
                         center_position[2]
                     ])
@@ -102,7 +102,7 @@ class Rubik:
                     # top face
                     top_position = np.array([
                         center_position[0],
-                        center_position[1] + 0.1,
+                        center_position[1] + size/2,
                         center_position[2]
                     ])
                     
@@ -111,13 +111,13 @@ class Rubik:
                     # bottom face
                     bottom_position = np.array([
                         center_position[0],
-                        center_position[1] - 0.1,
+                        center_position[1] - size/2,
                         center_position[2]
                     ])
 
                     bottom = Cube(size_y, bottom_position, face_color[5])
 
                     self.cubes.append([
-                        position, front, back, right, left, top, bottom
+                        center, front, back, right, left, top, bottom
                     ])
         return self.cubes
